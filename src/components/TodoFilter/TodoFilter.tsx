@@ -1,24 +1,22 @@
-
 interface Props {
   status: string;
   query: string;
   onStatusChange: (status: string) => void;
   onQueryChange: (query: string) => void;
 }
-export const TodoFilter:React.FC<Props> = ({
+export const TodoFilter: React.FC<Props> = ({
   status,
   query,
   onStatusChange,
-  onQueryChange
+  onQueryChange,
 }) => (
- <form className="field has-addons">
+  <form className="field has-addons">
     <p className="control">
       <span className="select">
         <select
-        data-cy="statusSelect"
-        value={status}
-        onChange={(e) => onStatusChange(e.target.value)
-        }
+          data-cy="statusSelect"
+          value={status}
+          onChange={e => onStatusChange(e.target.value)}
         >
           <option value="all">All</option>
           <option value="active">Active</option>
@@ -34,7 +32,7 @@ export const TodoFilter:React.FC<Props> = ({
         className="input"
         placeholder="Search..."
         value={query}
-        onChange={(e) => onQueryChange(e.target.value)}
+        onChange={e => onQueryChange(e.target.value)}
       />
       <span className="icon is-left">
         <i className="fas fa-magnifying-glass" />
@@ -44,11 +42,12 @@ export const TodoFilter:React.FC<Props> = ({
         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
         {query && (
           <button
-          data-cy="clearSearchButton"
-          type="button"
-          className="delete"
-          onClick={() => onQueryChange('')}
-          />)}
+            data-cy="clearSearchButton"
+            type="button"
+            className="delete"
+            onClick={() => onQueryChange('')}
+          />
+        )}
       </span>
     </p>
   </form>
